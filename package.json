@@ -1,7 +1,7 @@
 {
-  "name": "mone-rekho-app",
+  "name": "mone-rakhbo-app",
   "version": "1.0.0",
-  "description": "Mone Rekho - Coming Soon Page",
+  "description": "Moner Rakhbo - Coming Soon Page",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

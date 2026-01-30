@@ -1,15 +1,2 @@
-
-
-
-
-
-
-
-
-
-
-
-
 domain:
-www.monerekhbo.com
-
+www.monerakhbo.com
