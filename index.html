@@ -7,23 +7,23 @@
     <meta name="description" content="Schedule reminders and messages for birthdays, anniversaries, and important dates. Made for Bangladesh.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2C3E50;
-            --primary-light: #3D5166;
-            --primary-dark: #1A252F;
-            --secondary: #C9A959;
-            --secondary-light: #D4B96E;
-            --secondary-dark: #B8944A;
-            --accent: #C4A4A4;
-            --accent-light: #D4BABA;
-            --background: #FAF8F4;
-            --background-alt: #F3EFE8;
-            --text: #2C3E50;
-            --text-light: #5D6D7E;
+            --blue: #1E6B7B;
+            --blue-light: #2A8A9D;
+            --blue-dark: #155259;
+            --orange: #E8922A;
+            --orange-light: #F5A848;
+            --magenta: #C43D6E;
+            --magenta-light: #D85A87;
+            --green: #2D7D46;
+            --green-light: #3D9D5A;
+            --yellow: #F4C430;
+            --cream: #FDF8EF;
             --white: #FFFFFF;
-            --ivory: #FFFEF9;
+            --text: #1A1A1A;
+            --text-light: #555555;
         }
 
         * {
@@ -35,68 +35,44 @@
         body {
             font-family: 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
-            background: var(--background);
+            background: var(--cream);
             color: var(--text);
             line-height: 1.6;
         }
 
-        /* Jamdani-inspired woven pattern */
-        .jamdani-pattern {
+        /* Rickshaw art inspired decorative top border */
+        .rickshaw-border {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.04;
-            background-image:
-                /* Diamond/rhombus pattern typical of Jamdani */
-                repeating-linear-gradient(
-                    45deg,
-                    var(--secondary) 0px,
-                    var(--secondary) 1px,
-                    transparent 1px,
-                    transparent 20px
-                ),
-                repeating-linear-gradient(
-                    -45deg,
-                    var(--secondary) 0px,
-                    var(--secondary) 1px,
-                    transparent 1px,
-                    transparent 20px
-                ),
-                /* Subtle horizontal threads */
-                repeating-linear-gradient(
-                    0deg,
-                    var(--accent) 0px,
-                    var(--accent) 1px,
-                    transparent 1px,
-                    transparent 40px
-                );
-        }
-
-        /* Elegant gold top line */
-        .top-line {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--secondary);
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--magenta) 0px,
+                var(--magenta) 15px,
+                var(--orange) 15px,
+                var(--orange) 30px,
+                var(--blue) 30px,
+                var(--blue) 45px,
+                var(--green) 45px,
+                var(--green) 60px,
+                var(--yellow) 60px,
+                var(--yellow) 75px
+            );
             z-index: 200;
         }
 
         /* Header */
         .header {
-            background: var(--ivory);
-            padding: 1.25rem 1.5rem;
+            background: var(--blue);
+            padding: 1rem 1.5rem;
             position: fixed;
-            top: 3px;
+            top: 8px;
             left: 0;
             right: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--background-alt);
+            box-shadow: 0 2px 10px rgba(30, 107, 123, 0.3);
         }
 
         .header-content {
@@ -111,35 +87,34 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            color: var(--text);
+            color: var(--white);
             text-decoration: none;
         }
 
-        /* Jamdani-inspired logo mark */
-        .logo-mark {
-            width: 38px;
-            height: 38px;
+        /* Colourful rickshaw-style logo */
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--orange);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .logo-mark svg {
-            width: 100%;
-            height: 100%;
+            font-size: 1.25rem;
+            border: 3px solid var(--yellow);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .logo-text {
             font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            color: var(--primary);
+            font-weight: 700;
+            color: var(--white);
         }
 
         .logo-bengali {
-            font-weight: 400;
-            color: var(--secondary-dark);
-            margin-left: 0.35rem;
+            font-weight: 500;
+            color: var(--yellow);
+            margin-left: 0.25rem;
         }
 
         /* Hero Section */
@@ -148,126 +123,147 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8rem 1.5rem 4rem;
+            padding: 7rem 1.5rem 3rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative background pattern */
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0.06;
+            background-image:
+                radial-gradient(circle at 20% 30%, var(--magenta) 2px, transparent 2px),
+                radial-gradient(circle at 80% 70%, var(--orange) 2px, transparent 2px),
+                radial-gradient(circle at 50% 50%, var(--blue) 1px, transparent 1px);
+            background-size: 60px 60px, 80px 80px, 40px 40px;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
             text-align: center;
-            max-width: 560px;
+            max-width: 600px;
         }
 
-        /* Elegant badge */
+        /* Colourful badge */
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            background: transparent;
-            color: var(--secondary-dark);
-            padding: 0.5rem 0;
-            font-size: 0.75rem;
+            gap: 0.5rem;
+            background: var(--magenta);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 2rem;
-            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(196, 61, 110, 0.3);
         }
 
-        .hero-badge::before,
-        .hero-badge::after {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background: var(--secondary);
+        .hero-badge::before {
+            content: '🎉';
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 7vw, 3.5rem);
-            font-weight: 300;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            line-height: 1.15;
-            letter-spacing: -1px;
+            font-size: clamp(2.25rem, 7vw, 3.25rem);
+            font-weight: 700;
+            color: var(--blue-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
-        .hero-title strong {
-            font-weight: 600;
+        .hero-title-highlight {
+            color: var(--magenta);
         }
 
         .hero-title-bengali {
             display: block;
-            font-size: 0.45em;
-            font-weight: 400;
-            color: var(--secondary-dark);
-            margin-top: 0.75rem;
-            letter-spacing: 2px;
+            font-size: 0.5em;
+            font-weight: 600;
+            color: var(--orange);
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
         }
 
         .hero-subtitle {
             font-size: 1.1rem;
             color: var(--text-light);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             font-weight: 400;
-            line-height: 1.7;
         }
 
-        /* Card */
+        /* Colourful card with decorative border */
         .hero-card {
             background: var(--white);
-            border-radius: 2px;
-            padding: 2.5rem;
-            box-shadow: 0 1px 3px rgba(44, 62, 80, 0.04);
+            border-radius: 16px;
+            padding: 0;
+            box-shadow: 0 8px 30px rgba(30, 107, 123, 0.15);
             text-align: left;
-            position: relative;
-            border: 1px solid var(--background-alt);
+            overflow: hidden;
         }
 
-        /* Jamdani corner accents */
-        .hero-card::before,
-        .hero-card::after {
+        /* Decorative card header */
+        .card-header {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+            padding: 1.25rem 1.5rem;
+            position: relative;
+        }
+
+        .card-header::after {
             content: '';
             position: absolute;
-            width: 60px;
-            height: 60px;
-            border: 1px solid var(--secondary);
-            opacity: 0.4;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--yellow) 0px,
+                var(--yellow) 10px,
+                var(--orange) 10px,
+                var(--orange) 20px,
+                var(--magenta) 20px,
+                var(--magenta) 30px
+            );
         }
 
-        .hero-card::before {
-            top: -1px;
-            left: -1px;
-            border-right: none;
-            border-bottom: none;
-        }
-
-        .hero-card::after {
-            bottom: -1px;
-            right: -1px;
-            border-left: none;
-            border-top: none;
-        }
-
-        .hero-card h2 {
-            font-size: 0.75rem;
+        .card-header h2 {
+            font-size: 1.1rem;
             font-weight: 600;
-            color: var(--secondary-dark);
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            color: var(--white);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-header h2::before {
+            content: '✨';
+        }
+
+        .card-body {
+            padding: 1.5rem;
         }
 
         .features-list {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .features-list li {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--background-alt);
+            gap: 0.875rem;
+            padding: 0.875rem 0;
+            border-bottom: 2px dashed #F0EBE3;
         }
 
         .features-list li:last-child {
@@ -275,26 +271,30 @@
         }
 
         .feature-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--background);
-            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 1rem;
+            font-size: 1.25rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
+
+        .feature-icon-1 { background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%); }
+        .feature-icon-2 { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%); }
+        .feature-icon-3 { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); }
 
         .feature-content {
             padding-top: 0.25rem;
         }
 
         .feature-title {
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
+            color: var(--text);
+            margin-bottom: 0.2rem;
         }
 
         .feature-desc {
@@ -312,148 +312,153 @@
         .notify-input {
             flex: 1;
             min-width: 200px;
-            padding: 1rem 1.25rem;
-            border: 1px solid var(--background-alt);
-            border-radius: 2px;
+            padding: 0.95rem 1.25rem;
+            border: 2px solid #E8E3DB;
+            border-radius: 10px;
             font-family: inherit;
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: border-color 0.2s, box-shadow 0.2s;
-            background: var(--ivory);
+            background: var(--cream);
         }
 
         .notify-input:focus {
             outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(201, 169, 89, 0.1);
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(30, 107, 123, 0.15);
             background: var(--white);
         }
 
-        .notify-input::placeholder {
-            color: var(--accent);
-        }
-
         .notify-button {
-            padding: 1rem 2rem;
-            background: var(--primary);
+            padding: 0.95rem 1.75rem;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
             color: var(--white);
             border: none;
-            border-radius: 2px;
+            border-radius: 10px;
             font-family: inherit;
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            transition: transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(232, 146, 42, 0.35);
         }
 
         .notify-button:hover {
-            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232, 146, 42, 0.45);
         }
 
         .notify-button:active {
-            transform: scale(0.98);
+            transform: translateY(0);
         }
 
         .form-note {
             font-size: 0.8rem;
             color: var(--text-light);
             margin-top: 1rem;
-            font-style: italic;
-        }
-
-        /* Jamdani floating motifs */
-        .motif {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.06;
-        }
-
-        .motif svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .motif-1 {
-            top: 15%;
-            left: 8%;
-            width: 120px;
-            height: 120px;
-            animation: float-slow 12s ease-in-out infinite;
-        }
-
-        .motif-2 {
-            top: 20%;
-            right: 10%;
-            width: 80px;
-            height: 80px;
-            animation: float-slow 15s ease-in-out infinite reverse;
-        }
-
-        .motif-3 {
-            bottom: 25%;
-            left: 5%;
-            width: 60px;
-            height: 60px;
-            animation: float-slow 10s ease-in-out infinite;
-        }
-
-        .motif-4 {
-            bottom: 15%;
-            right: 8%;
-            width: 100px;
-            height: 100px;
-            animation: float-slow 14s ease-in-out infinite reverse;
-        }
-
-        @keyframes float-slow {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(2deg); }
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--ivory);
-            border-top: 1px solid var(--background-alt);
-            padding: 2rem 1.5rem;
             text-align: center;
         }
 
+        /* Decorative floating elements */
+        .decoration {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .deco-flower-1 {
+            top: 12%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            animation: spin-slow 20s linear infinite;
+        }
+
+        .deco-flower-2 {
+            top: 20%;
+            right: 8%;
+            width: 60px;
+            height: 60px;
+            animation: spin-slow 25s linear infinite reverse;
+        }
+
+        .deco-flower-3 {
+            bottom: 25%;
+            left: 8%;
+            width: 50px;
+            height: 50px;
+            animation: float-bounce 4s ease-in-out infinite;
+        }
+
+        .deco-flower-4 {
+            bottom: 15%;
+            right: 5%;
+            width: 70px;
+            height: 70px;
+            animation: spin-slow 18s linear infinite;
+        }
+
+        .decoration svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes float-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Footer with decorative border */
+        .footer {
+            background: var(--blue);
+            padding: 0;
+            text-align: center;
+        }
+
+        .footer-border {
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--yellow) 0px,
+                var(--yellow) 12px,
+                var(--orange) 12px,
+                var(--orange) 24px,
+                var(--magenta) 24px,
+                var(--magenta) 36px,
+                var(--green) 36px,
+                var(--green) 48px
+            );
+        }
+
         .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 1.5rem;
         }
 
         .footer-text {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .footer-divider {
-            width: 40px;
-            height: 1px;
-            background: var(--secondary);
-            margin: 0 auto 1rem;
+        .footer-text .heart {
+            color: var(--magenta-light);
         }
 
         /* Mobile Adjustments */
         @media (max-width: 480px) {
             .header {
-                padding: 1rem;
+                padding: 0.875rem 1rem;
             }
 
             .hero {
-                padding: 6rem 1rem 3rem;
+                padding: 6rem 1rem 2rem;
             }
 
-            .hero-card {
-                padding: 1.75rem;
-            }
-
-            .hero-card::before,
-            .hero-card::after {
-                width: 40px;
-                height: 40px;
+            .card-body {
+                padding: 1.25rem;
             }
 
             .notify-form {
@@ -464,72 +469,72 @@
                 width: 100%;
             }
 
-            .motif {
-                opacity: 0.04;
+            .decoration {
+                opacity: 0.6;
             }
 
-            .motif-1, .motif-4 {
+            .deco-flower-1, .deco-flower-4 {
                 display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="jamdani-pattern"></div>
-    <div class="top-line"></div>
+    <div class="rickshaw-border"></div>
 
     <header class="header">
         <div class="header-content">
             <a href="/" class="logo">
-                <div class="logo-mark">
-                    <!-- Jamdani-inspired geometric motif -->
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Outer diamond -->
-                        <path d="M50 5 L95 50 L50 95 L5 50 Z" stroke="#C9A959" stroke-width="2" fill="none"/>
-                        <!-- Inner diamond -->
-                        <path d="M50 20 L80 50 L50 80 L20 50 Z" stroke="#C9A959" stroke-width="1.5" fill="none"/>
-                        <!-- Center diamond -->
-                        <path d="M50 35 L65 50 L50 65 L35 50 Z" fill="#C9A959"/>
-                        <!-- Cross lines -->
-                        <line x1="50" y1="5" x2="50" y2="35" stroke="#C9A959" stroke-width="1"/>
-                        <line x1="50" y1="65" x2="50" y2="95" stroke="#C9A959" stroke-width="1"/>
-                        <line x1="5" y1="50" x2="35" y2="50" stroke="#C9A959" stroke-width="1"/>
-                        <line x1="65" y1="50" x2="95" y2="50" stroke="#C9A959" stroke-width="1"/>
-                    </svg>
-                </div>
+                <div class="logo-icon">🔔</div>
                 <span class="logo-text">Mone Rakhbo <span class="logo-bengali">মনে রাখবো</span></span>
             </a>
         </div>
     </header>
 
     <main class="hero">
-        <!-- Jamdani floating motifs -->
-        <div class="motif motif-1">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 0 L100 50 L50 100 L0 50 Z" stroke="#C9A959" stroke-width="1" fill="none"/>
-                <path d="M50 15 L85 50 L50 85 L15 50 Z" stroke="#C9A959" stroke-width="1" fill="none"/>
-                <path d="M50 30 L70 50 L50 70 L30 50 Z" fill="#C9A959" opacity="0.3"/>
+        <div class="pattern-bg"></div>
+
+        <!-- Rickshaw art style flower decorations -->
+        <div class="decoration deco-flower-1">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="15" fill="#C43D6E"/>
+                <ellipse cx="50" cy="20" rx="12" ry="18" fill="#E8922A"/>
+                <ellipse cx="50" cy="80" rx="12" ry="18" fill="#E8922A"/>
+                <ellipse cx="20" cy="50" rx="18" ry="12" fill="#E8922A"/>
+                <ellipse cx="80" cy="50" rx="18" ry="12" fill="#E8922A"/>
+                <ellipse cx="27" cy="27" rx="12" ry="15" fill="#1E6B7B" transform="rotate(-45 27 27)"/>
+                <ellipse cx="73" cy="27" rx="12" ry="15" fill="#1E6B7B" transform="rotate(45 73 27)"/>
+                <ellipse cx="27" cy="73" rx="12" ry="15" fill="#1E6B7B" transform="rotate(45 27 73)"/>
+                <ellipse cx="73" cy="73" rx="12" ry="15" fill="#1E6B7B" transform="rotate(-45 73 73)"/>
+                <circle cx="50" cy="50" r="8" fill="#F4C430"/>
             </svg>
         </div>
-        <div class="motif motif-2">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="45" stroke="#2C3E50" stroke-width="1" fill="none"/>
-                <circle cx="50" cy="50" r="30" stroke="#2C3E50" stroke-width="1" fill="none"/>
-                <circle cx="50" cy="50" r="15" fill="#2C3E50" opacity="0.2"/>
+        <div class="decoration deco-flower-2">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="12" fill="#2D7D46"/>
+                <ellipse cx="50" cy="25" rx="10" ry="20" fill="#C43D6E"/>
+                <ellipse cx="50" cy="75" rx="10" ry="20" fill="#C43D6E"/>
+                <ellipse cx="25" cy="50" rx="20" ry="10" fill="#C43D6E"/>
+                <ellipse cx="75" cy="50" rx="20" ry="10" fill="#C43D6E"/>
+                <circle cx="50" cy="50" r="6" fill="#F4C430"/>
             </svg>
         </div>
-        <div class="motif motif-3">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 0 L100 50 L50 100 L0 50 Z" stroke="#C4A4A4" stroke-width="1" fill="none"/>
-                <path d="M50 25 L75 50 L50 75 L25 50 Z" fill="#C4A4A4" opacity="0.3"/>
+        <div class="decoration deco-flower-3">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,10 61,40 95,40 68,60 79,90 50,72 21,90 32,60 5,40 39,40" fill="#E8922A"/>
+                <circle cx="50" cy="50" r="12" fill="#1E6B7B"/>
+                <circle cx="50" cy="50" r="6" fill="#F4C430"/>
             </svg>
         </div>
-        <div class="motif motif-4">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 5 L95 50 L50 95 L5 50 Z" stroke="#C9A959" stroke-width="1" fill="none"/>
-                <path d="M50 20 L80 50 L50 80 L20 50 Z" stroke="#C9A959" stroke-width="1" fill="none"/>
-                <path d="M50 35 L65 50 L50 65 L35 50 Z" stroke="#C9A959" stroke-width="1" fill="none"/>
-                <circle cx="50" cy="50" r="8" fill="#C9A959" opacity="0.4"/>
+        <div class="decoration deco-flower-4">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="18" fill="#1E6B7B"/>
+                <ellipse cx="50" cy="15" rx="14" ry="22" fill="#E8922A"/>
+                <ellipse cx="50" cy="85" rx="14" ry="22" fill="#E8922A"/>
+                <ellipse cx="15" cy="50" rx="22" ry="14" fill="#E8922A"/>
+                <ellipse cx="85" cy="50" rx="22" ry="14" fill="#E8922A"/>
+                <circle cx="50" cy="50" r="10" fill="#C43D6E"/>
+                <circle cx="50" cy="50" r="5" fill="#F4C430"/>
             </svg>
         </div>
 
@@ -537,7 +542,7 @@
             <div class="hero-badge">Coming Soon</div>
 
             <h1 class="hero-title">
-                Never Forget <strong>What Matters</strong>
+                Never Forget <span class="hero-title-highlight">What Matters</span>
                 <span class="hero-title-bengali">মনে রাখবো — যা গুরুত্বপূর্ণ</span>
             </h1>
 
@@ -546,52 +551,55 @@
             </p>
 
             <div class="hero-card">
-                <h2>Join the Waitlist</h2>
+                <div class="card-header">
+                    <h2>Be the first to know when we launch</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="features-list">
+                        <li>
+                            <span class="feature-icon feature-icon-1">🎂</span>
+                            <div class="feature-content">
+                                <div class="feature-title">Birthday & Anniversary Reminders</div>
+                                <div class="feature-desc">Never miss an important date again</div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="feature-icon feature-icon-2">💌</span>
+                            <div class="feature-content">
+                                <div class="feature-title">Automatic Message Delivery</div>
+                                <div class="feature-desc">Schedule wishes weeks in advance</div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="feature-icon feature-icon-3">🇧🇩</span>
+                            <div class="feature-content">
+                                <div class="feature-title">Made for Bangladesh</div>
+                                <div class="feature-desc">Bangla support, bKash payments</div>
+                            </div>
+                        </li>
+                    </ul>
 
-                <ul class="features-list">
-                    <li>
-                        <span class="feature-icon">🎂</span>
-                        <div class="feature-content">
-                            <div class="feature-title">Birthday & Anniversary Reminders</div>
-                            <div class="feature-desc">Never miss an important date again</div>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="feature-icon">💌</span>
-                        <div class="feature-content">
-                            <div class="feature-title">Automatic Message Delivery</div>
-                            <div class="feature-desc">Schedule wishes weeks in advance</div>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="feature-icon">🇧🇩</span>
-                        <div class="feature-content">
-                            <div class="feature-title">Made for Bangladesh</div>
-                            <div class="feature-desc">Bangla support, bKash payments</div>
-                        </div>
-                    </li>
-                </ul>
-
-                <form class="notify-form" action="#" method="POST" onsubmit="return handleSubmit(event)">
-                    <input
-                        type="email"
-                        class="notify-input"
-                        placeholder="Enter your email address"
-                        required
-                        aria-label="Email address"
-                    >
-                    <button type="submit" class="notify-button">Notify Me</button>
-                </form>
-                <p class="form-note">We'll send you one email when we launch. No spam.</p>
+                    <form class="notify-form" action="#" method="POST" onsubmit="return handleSubmit(event)">
+                        <input
+                            type="email"
+                            class="notify-input"
+                            placeholder="Enter your email address"
+                            required
+                            aria-label="Email address"
+                        >
+                        <button type="submit" class="notify-button">Notify Me</button>
+                    </form>
+                    <p class="form-note">No spam, just one email when we launch 🎉</p>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="footer">
+        <div class="footer-border"></div>
         <div class="footer-content">
-            <div class="footer-divider"></div>
             <p class="footer-text">
-                &copy; 2026 Mone Rakhbo. Crafted with care in Bangladesh.
+                &copy; 2026 Mone Rakhbo. Made with <span class="heart">❤️</span> in Bangladesh.
             </p>
         </div>
     </footer>
@@ -602,9 +610,9 @@
             const form = event.target;
             const button = form.querySelector('button');
 
-            button.textContent = 'ধন্যবাদ!';
+            button.textContent = '🎉 ধন্যবাদ!';
             button.disabled = true;
-            button.style.background = '#C9A959';
+            button.style.background = 'linear-gradient(135deg, #2D7D46 0%, #3D9D5A 100%)';
 
             setTimeout(() => {
                 button.textContent = 'Notify Me';
