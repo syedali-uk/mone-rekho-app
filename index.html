@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mone Rakhবো - Never Forget What Matters</title>
+    <title>Mone Rakhbo (মনে রাখবো) - Never Forget What Matters</title>
     <meta name="description" content="Schedule reminders and messages for birthdays, anniversaries, and important dates. Made for Bangladesh.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #006A4E;
-            --primary-light: #008060;
-            --primary-dark: #004D38;
-            --secondary: #F4A836;
-            --secondary-light: #FFBE5C;
-            --accent: #E63946;
-            --background: #FDF8F3;
-            --background-alt: #F5EDE4;
-            --text: #2D3436;
-            --text-light: #636E72;
+            --primary: #1A7F7A;
+            --primary-light: #2A9D97;
+            --primary-dark: #156662;
+            --secondary: #C4694D;
+            --secondary-light: #D4836A;
+            --accent: #E07A3B;
+            --background: #FEFCF9;
+            --background-alt: #F5F0EA;
+            --text: #3D2C29;
+            --text-light: #6B5B57;
             --white: #FFFFFF;
         }
 
@@ -46,7 +46,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 106, 78, 0.15);
+            box-shadow: 0 2px 8px rgba(26, 127, 122, 0.2);
         }
 
         .header-content {
@@ -84,7 +84,8 @@
 
         .logo-bengali {
             font-weight: 400;
-            opacity: 0.9;
+            color: var(--accent);
+            margin-left: 0.25rem;
         }
 
         /* Hero Section */
@@ -134,7 +135,7 @@
         .hero-badge-dot {
             width: 8px;
             height: 8px;
-            background: var(--secondary);
+            background: var(--accent);
             border-radius: 50%;
             animation: pulse-dot 2s ease-in-out infinite;
         }
@@ -153,11 +154,8 @@
         }
 
         .hero-title-bengali {
-            display: block;
-            font-size: 0.6em;
-            font-weight: 400;
-            opacity: 0.9;
-            margin-top: 0.25rem;
+            color: var(--accent);
+            font-weight: 500;
         }
 
         .hero-subtitle {
@@ -172,7 +170,7 @@
             background: var(--white);
             border-radius: 16px;
             padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 106, 78, 0.15);
+            box-shadow: 0 20px 60px rgba(26, 127, 122, 0.15);
             text-align: left;
         }
 
@@ -203,7 +201,7 @@
         .feature-icon {
             width: 24px;
             height: 24px;
-            background: var(--background);
+            background: var(--background-alt);
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -243,7 +241,7 @@
         .notify-input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 106, 78, 0.1);
+            box-shadow: 0 0 0 3px rgba(26, 127, 122, 0.1);
         }
 
         .notify-button {
@@ -285,7 +283,7 @@
             width: 60px;
             height: 60px;
             background: var(--secondary);
-            opacity: 0.3;
+            opacity: 0.25;
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
         }
@@ -308,7 +306,7 @@
             width: 20px;
             height: 20px;
             background: var(--secondary);
-            opacity: 0.4;
+            opacity: 0.3;
             border-radius: 4px;
             animation: float 5s ease-in-out infinite;
         }
@@ -369,7 +367,7 @@
         <div class="header-content">
             <a href="/" class="logo">
                 <div class="logo-icon">🔔</div>
-                <span class="logo-text">Mone Rakh<span class="logo-bengali">বো</span></span>
+                <span class="logo-text">Mone Rakhbo <span class="logo-bengali">মনে রাখবো</span></span>
             </a>
         </div>
     </header>
@@ -386,8 +384,7 @@
             </div>
 
             <h1 class="hero-title">
-                Never Forget What Matters
-                <span class="hero-title-bengali">মনে রাখবো</span>
+                Never Forget What Matters <span class="hero-title-bengali">মনে রাখবো</span>
             </h1>
 
             <p class="hero-subtitle">
@@ -429,7 +426,7 @@
 
     <footer class="footer">
         <p class="footer-text">
-            &copy; 2026 Mone Rakhবো. Made with ❤️ for Bangladesh.
+            &copy; 2026 Mone Rakhbo. Made with ❤️ for Bangladesh.
         </p>
     </footer>
 
@@ -443,7 +440,7 @@
             // Simple feedback (replace with actual API call later)
             button.textContent = 'Thank you!';
             button.disabled = true;
-            button.style.background = '#F4A836';
+            button.style.background = '#C4694D';
 
             // Reset after 3 seconds
             setTimeout(() => {
