@@ -10,20 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue: #1E6B7B;
-            --blue-light: #2A8A9D;
-            --blue-dark: #155259;
-            --orange: #E8922A;
-            --orange-light: #F5A848;
-            --magenta: #C43D6E;
-            --magenta-light: #D85A87;
-            --green: #2D7D46;
-            --green-light: #3D9D5A;
-            --yellow: #F4C430;
-            --cream: #FDF8EF;
+            --terracotta: #C75B39;
+            --terracotta-light: #D97B5D;
+            --terracotta-dark: #A84A2D;
+            --cream: #FDF6E9;
+            --cream-dark: #F5E6D3;
+            --green: #2D5A45;
+            --green-light: #3D7A5D;
+            --sand: #F8F1E4;
+            --sand-dark: #EDE3D1;
             --white: #FFFFFF;
-            --text: #1A1A1A;
-            --text-light: #555555;
+            --text: #3D2D28;
+            --text-light: #6B5B55;
         }
 
         * {
@@ -35,44 +33,50 @@
         body {
             font-family: 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
-            background: var(--cream);
+            background: var(--sand);
             color: var(--text);
             line-height: 1.6;
         }
 
-        /* Rickshaw art inspired decorative top border */
-        .rickshaw-border {
+        /* Alpona pattern border */
+        .alpona-border {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 8px;
+            height: 12px;
+            background: var(--terracotta);
+            z-index: 200;
+            overflow: hidden;
+        }
+
+        .alpona-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
             background: repeating-linear-gradient(
                 90deg,
-                var(--magenta) 0px,
-                var(--magenta) 15px,
-                var(--orange) 15px,
-                var(--orange) 30px,
-                var(--blue) 30px,
-                var(--blue) 45px,
-                var(--green) 45px,
-                var(--green) 60px,
-                var(--yellow) 60px,
-                var(--yellow) 75px
+                transparent 0px,
+                transparent 8px,
+                var(--cream) 8px,
+                var(--cream) 12px,
+                transparent 12px,
+                transparent 20px
             );
-            z-index: 200;
         }
 
         /* Header */
         .header {
-            background: var(--blue);
+            background: var(--terracotta);
             padding: 1rem 1.5rem;
             position: fixed;
-            top: 8px;
+            top: 12px;
             left: 0;
             right: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(30, 107, 123, 0.3);
         }
 
         .header-content {
@@ -87,34 +91,35 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            color: var(--white);
+            color: var(--cream);
             text-decoration: none;
         }
 
-        /* Colourful rickshaw-style logo */
+        /* Alpona-style logo icon */
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: var(--orange);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            border: 3px solid var(--yellow);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
         .logo-text {
             font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--white);
+            font-weight: 600;
+            color: var(--cream);
         }
 
         .logo-bengali {
             font-weight: 500;
-            color: var(--yellow);
+            color: var(--white);
             margin-left: 0.25rem;
+            opacity: 0.9;
         }
 
         /* Hero Section */
@@ -123,72 +128,70 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 7rem 1.5rem 3rem;
+            padding: 8rem 1.5rem 3rem;
             position: relative;
             overflow: hidden;
         }
 
-        /* Decorative background pattern */
-        .pattern-bg {
+        /* Alpona background pattern */
+        .alpona-bg {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             pointer-events: none;
-            opacity: 0.06;
+            opacity: 0.04;
             background-image:
-                radial-gradient(circle at 20% 30%, var(--magenta) 2px, transparent 2px),
-                radial-gradient(circle at 80% 70%, var(--orange) 2px, transparent 2px),
-                radial-gradient(circle at 50% 50%, var(--blue) 1px, transparent 1px);
-            background-size: 60px 60px, 80px 80px, 40px 40px;
+                radial-gradient(circle at 25% 25%, var(--terracotta) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, var(--terracotta) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, var(--green) 1px, transparent 1px);
+            background-size: 40px 40px, 40px 40px, 60px 60px;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
             text-align: center;
-            max-width: 600px;
+            max-width: 580px;
         }
 
-        /* Colourful badge */
+        /* Badge with alpona style */
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--magenta);
-            color: var(--white);
+            gap: 0.75rem;
+            background: var(--terracotta);
+            color: var(--cream);
             padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
+            margin-bottom: 1.75rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(196, 61, 110, 0.3);
+            position: relative;
         }
 
-        .hero-badge::before {
-            content: '🎉';
+        .hero-badge::before,
+        .hero-badge::after {
+            content: '✿';
+            font-size: 0.9rem;
         }
 
         .hero-title {
             font-size: clamp(2.25rem, 7vw, 3.25rem);
             font-weight: 700;
-            color: var(--blue-dark);
+            color: var(--terracotta-dark);
             margin-bottom: 0.5rem;
             line-height: 1.2;
-        }
-
-        .hero-title-highlight {
-            color: var(--magenta);
         }
 
         .hero-title-bengali {
             display: block;
             font-size: 0.5em;
             font-weight: 600;
-            color: var(--orange);
+            color: var(--green);
             margin-top: 0.5rem;
             letter-spacing: 1px;
         }
@@ -196,74 +199,81 @@
         .hero-subtitle {
             font-size: 1.1rem;
             color: var(--text-light);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             font-weight: 400;
         }
 
-        /* Colourful card with decorative border */
+        /* Card with alpona decoration */
         .hero-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 0;
-            box-shadow: 0 8px 30px rgba(30, 107, 123, 0.15);
+            background: var(--cream);
+            border-radius: 4px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(199, 91, 57, 0.1);
             text-align: left;
-            overflow: hidden;
-        }
-
-        /* Decorative card header */
-        .card-header {
-            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
-            padding: 1.25rem 1.5rem;
             position: relative;
+            border: 2px solid var(--terracotta);
         }
 
-        .card-header::after {
+        /* Alpona corner decorations */
+        .hero-card::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--yellow) 0px,
-                var(--yellow) 10px,
-                var(--orange) 10px,
-                var(--orange) 20px,
-                var(--magenta) 20px,
-                var(--magenta) 30px
-            );
+            top: -2px;
+            left: -2px;
+            width: 50px;
+            height: 50px;
+            border-top: 3px solid var(--terracotta);
+            border-left: 3px solid var(--terracotta);
+            background:
+                radial-gradient(circle at 0 0, var(--terracotta) 4px, transparent 4px),
+                radial-gradient(circle at 15px 15px, var(--terracotta) 3px, transparent 3px);
         }
 
-        .card-header h2 {
-            font-size: 1.1rem;
+        .hero-card::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 50px;
+            height: 50px;
+            border-bottom: 3px solid var(--terracotta);
+            border-right: 3px solid var(--terracotta);
+            background:
+                radial-gradient(circle at 100% 100%, var(--terracotta) 4px, transparent 4px),
+                radial-gradient(circle at calc(100% - 15px) calc(100% - 15px), var(--terracotta) 3px, transparent 3px);
+        }
+
+        .hero-card h2 {
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--white);
-            margin: 0;
+            color: var(--terracotta);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px dashed var(--sand-dark);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .card-header h2::before {
-            content: '✨';
-        }
-
-        .card-body {
-            padding: 1.5rem;
+        .hero-card h2::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--terracotta);
+            border-radius: 50%;
         }
 
         .features-list {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
         }
 
         .features-list li {
             display: flex;
             align-items: flex-start;
-            gap: 0.875rem;
+            gap: 1rem;
             padding: 0.875rem 0;
-            border-bottom: 2px dashed #F0EBE3;
+            border-bottom: 1px dashed var(--sand-dark);
         }
 
         .features-list li:last-child {
@@ -271,27 +281,24 @@
         }
 
         .feature-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            background: var(--sand);
+            border: 2px solid var(--terracotta);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 1.25rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-size: 1rem;
         }
-
-        .feature-icon-1 { background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-light) 100%); }
-        .feature-icon-2 { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%); }
-        .feature-icon-3 { background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%); }
 
         .feature-content {
             padding-top: 0.25rem;
         }
 
         .feature-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--text);
             margin-bottom: 0.2rem;
@@ -313,138 +320,118 @@
             flex: 1;
             min-width: 200px;
             padding: 0.95rem 1.25rem;
-            border: 2px solid #E8E3DB;
-            border-radius: 10px;
+            border: 2px solid var(--sand-dark);
+            border-radius: 4px;
             font-family: inherit;
             font-size: 1rem;
             transition: border-color 0.2s, box-shadow 0.2s;
-            background: var(--cream);
+            background: var(--white);
         }
 
         .notify-input:focus {
             outline: none;
-            border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(30, 107, 123, 0.15);
-            background: var(--white);
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(199, 91, 57, 0.1);
+        }
+
+        .notify-input::placeholder {
+            color: var(--text-light);
+            opacity: 0.7;
         }
 
         .notify-button {
             padding: 0.95rem 1.75rem;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            color: var(--white);
+            background: var(--terracotta);
+            color: var(--cream);
             border: none;
-            border-radius: 10px;
+            border-radius: 4px;
             font-family: inherit;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.1s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(232, 146, 42, 0.35);
+            transition: background 0.2s, transform 0.1s;
         }
 
         .notify-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(232, 146, 42, 0.45);
+            background: var(--terracotta-dark);
         }
 
         .notify-button:active {
-            transform: translateY(0);
+            transform: scale(0.98);
         }
 
         .form-note {
             font-size: 0.8rem;
             color: var(--text-light);
             margin-top: 1rem;
-            text-align: center;
         }
 
-        /* Decorative floating elements */
-        .decoration {
+        /* Alpona floating decorations */
+        .alpona-motif {
             position: absolute;
             pointer-events: none;
+            opacity: 0.12;
         }
 
-        .deco-flower-1 {
-            top: 12%;
-            left: 5%;
-            width: 80px;
-            height: 80px;
-            animation: spin-slow 20s linear infinite;
-        }
-
-        .deco-flower-2 {
-            top: 20%;
-            right: 8%;
-            width: 60px;
-            height: 60px;
-            animation: spin-slow 25s linear infinite reverse;
-        }
-
-        .deco-flower-3 {
-            bottom: 25%;
-            left: 8%;
-            width: 50px;
-            height: 50px;
-            animation: float-bounce 4s ease-in-out infinite;
-        }
-
-        .deco-flower-4 {
-            bottom: 15%;
-            right: 5%;
-            width: 70px;
-            height: 70px;
-            animation: spin-slow 18s linear infinite;
-        }
-
-        .decoration svg {
+        .alpona-motif svg {
             width: 100%;
             height: 100%;
-            opacity: 0.15;
         }
 
-        @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .motif-1 {
+            top: 12%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
         }
 
-        @keyframes float-bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+        .motif-2 {
+            top: 25%;
+            right: 8%;
+            width: 80px;
+            height: 80px;
         }
 
-        /* Footer with decorative border */
+        .motif-3 {
+            bottom: 20%;
+            left: 8%;
+            width: 70px;
+            height: 70px;
+        }
+
+        .motif-4 {
+            bottom: 15%;
+            right: 5%;
+            width: 90px;
+            height: 90px;
+        }
+
+        /* Footer */
         .footer {
-            background: var(--blue);
+            background: var(--terracotta);
             padding: 0;
             text-align: center;
+            position: relative;
         }
 
-        .footer-border {
-            height: 6px;
+        .footer-pattern {
+            height: 8px;
             background: repeating-linear-gradient(
                 90deg,
-                var(--yellow) 0px,
-                var(--yellow) 12px,
-                var(--orange) 12px,
-                var(--orange) 24px,
-                var(--magenta) 24px,
-                var(--magenta) 36px,
-                var(--green) 36px,
-                var(--green) 48px
+                var(--cream) 0px,
+                var(--cream) 4px,
+                transparent 4px,
+                transparent 12px
             );
         }
 
         .footer-content {
-            padding: 1.5rem;
+            padding: 1.25rem;
         }
 
         .footer-text {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .footer-text .heart {
-            color: var(--magenta-light);
+            color: var(--cream);
         }
 
         /* Mobile Adjustments */
@@ -457,8 +444,14 @@
                 padding: 6rem 1rem 2rem;
             }
 
-            .card-body {
-                padding: 1.25rem;
+            .hero-card {
+                padding: 1.5rem;
+            }
+
+            .hero-card::before,
+            .hero-card::after {
+                width: 35px;
+                height: 35px;
             }
 
             .notify-form {
@@ -469,80 +462,100 @@
                 width: 100%;
             }
 
-            .decoration {
-                opacity: 0.6;
+            .alpona-motif {
+                opacity: 0.08;
             }
 
-            .deco-flower-1, .deco-flower-4 {
+            .motif-1, .motif-4 {
                 display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="rickshaw-border"></div>
+    <div class="alpona-border"></div>
 
     <header class="header">
         <div class="header-content">
             <a href="/" class="logo">
-                <div class="logo-icon">🔔</div>
+                <div class="logo-icon">
+                    <!-- Alpona-style lotus/paisley icon -->
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Outer petals -->
+                        <ellipse cx="50" cy="25" rx="12" ry="20" fill="#FDF6E9"/>
+                        <ellipse cx="50" cy="75" rx="12" ry="20" fill="#FDF6E9"/>
+                        <ellipse cx="25" cy="50" rx="20" ry="12" fill="#FDF6E9"/>
+                        <ellipse cx="75" cy="50" rx="20" ry="12" fill="#FDF6E9"/>
+                        <!-- Diagonal petals -->
+                        <ellipse cx="30" cy="30" rx="10" ry="16" fill="#FDF6E9" transform="rotate(-45 30 30)"/>
+                        <ellipse cx="70" cy="30" rx="10" ry="16" fill="#FDF6E9" transform="rotate(45 70 30)"/>
+                        <ellipse cx="30" cy="70" rx="10" ry="16" fill="#FDF6E9" transform="rotate(45 30 70)"/>
+                        <ellipse cx="70" cy="70" rx="10" ry="16" fill="#FDF6E9" transform="rotate(-45 70 70)"/>
+                        <!-- Center -->
+                        <circle cx="50" cy="50" r="15" fill="#FDF6E9"/>
+                        <circle cx="50" cy="50" r="8" fill="#C75B39"/>
+                        <!-- Dots -->
+                        <circle cx="50" cy="50" r="3" fill="#FDF6E9"/>
+                    </svg>
+                </div>
                 <span class="logo-text">Mone Rakhbo <span class="logo-bengali">মনে রাখবো</span></span>
             </a>
         </div>
     </header>
 
     <main class="hero">
-        <div class="pattern-bg"></div>
+        <div class="alpona-bg"></div>
 
-        <!-- Rickshaw art style flower decorations -->
-        <div class="decoration deco-flower-1">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="15" fill="#C43D6E"/>
-                <ellipse cx="50" cy="20" rx="12" ry="18" fill="#E8922A"/>
-                <ellipse cx="50" cy="80" rx="12" ry="18" fill="#E8922A"/>
-                <ellipse cx="20" cy="50" rx="18" ry="12" fill="#E8922A"/>
-                <ellipse cx="80" cy="50" rx="18" ry="12" fill="#E8922A"/>
-                <ellipse cx="27" cy="27" rx="12" ry="15" fill="#1E6B7B" transform="rotate(-45 27 27)"/>
-                <ellipse cx="73" cy="27" rx="12" ry="15" fill="#1E6B7B" transform="rotate(45 73 27)"/>
-                <ellipse cx="27" cy="73" rx="12" ry="15" fill="#1E6B7B" transform="rotate(45 27 73)"/>
-                <ellipse cx="73" cy="73" rx="12" ry="15" fill="#1E6B7B" transform="rotate(-45 73 73)"/>
-                <circle cx="50" cy="50" r="8" fill="#F4C430"/>
+        <!-- Alpona-style decorative motifs -->
+        <div class="alpona-motif motif-1">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Paisley/Mango motif -->
+                <path d="M50 10 Q80 30 70 60 Q60 90 50 90 Q40 90 30 60 Q20 30 50 10" fill="none" stroke="#C75B39" stroke-width="2"/>
+                <path d="M50 20 Q70 35 62 55 Q55 75 50 75 Q45 75 38 55 Q30 35 50 20" fill="none" stroke="#C75B39" stroke-width="1.5"/>
+                <circle cx="50" cy="45" r="8" fill="none" stroke="#C75B39" stroke-width="1.5"/>
+                <circle cx="50" cy="45" r="3" fill="#C75B39"/>
             </svg>
         </div>
-        <div class="decoration deco-flower-2">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="12" fill="#2D7D46"/>
-                <ellipse cx="50" cy="25" rx="10" ry="20" fill="#C43D6E"/>
-                <ellipse cx="50" cy="75" rx="10" ry="20" fill="#C43D6E"/>
-                <ellipse cx="25" cy="50" rx="20" ry="10" fill="#C43D6E"/>
-                <ellipse cx="75" cy="50" rx="20" ry="10" fill="#C43D6E"/>
-                <circle cx="50" cy="50" r="6" fill="#F4C430"/>
+        <div class="alpona-motif motif-2">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Rice plant motif -->
+                <line x1="50" y1="90" x2="50" y2="30" stroke="#2D5A45" stroke-width="2"/>
+                <ellipse cx="35" cy="35" rx="6" ry="12" fill="none" stroke="#2D5A45" stroke-width="1.5" transform="rotate(-30 35 35)"/>
+                <ellipse cx="65" cy="35" rx="6" ry="12" fill="none" stroke="#2D5A45" stroke-width="1.5" transform="rotate(30 65 35)"/>
+                <ellipse cx="30" cy="50" rx="5" ry="10" fill="none" stroke="#2D5A45" stroke-width="1.5" transform="rotate(-40 30 50)"/>
+                <ellipse cx="70" cy="50" rx="5" ry="10" fill="none" stroke="#2D5A45" stroke-width="1.5" transform="rotate(40 70 50)"/>
+                <ellipse cx="35" cy="65" rx="5" ry="10" fill="none" stroke="#2D5A45" stroke-width="1.5" transform="rotate(-30 35 65)"/>
+                <ellipse cx="65" cy="65" rx="5" ry="10" fill="none" stroke="#2D5A45" stroke-width="1.5" transform="rotate(30 65 65)"/>
             </svg>
         </div>
-        <div class="decoration deco-flower-3">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="50,10 61,40 95,40 68,60 79,90 50,72 21,90 32,60 5,40 39,40" fill="#E8922A"/>
-                <circle cx="50" cy="50" r="12" fill="#1E6B7B"/>
-                <circle cx="50" cy="50" r="6" fill="#F4C430"/>
+        <div class="alpona-motif motif-3">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Lotus flower motif -->
+                <ellipse cx="50" cy="30" rx="8" ry="18" fill="none" stroke="#C75B39" stroke-width="1.5"/>
+                <ellipse cx="30" cy="45" rx="8" ry="18" fill="none" stroke="#C75B39" stroke-width="1.5" transform="rotate(-60 30 45)"/>
+                <ellipse cx="70" cy="45" rx="8" ry="18" fill="none" stroke="#C75B39" stroke-width="1.5" transform="rotate(60 70 45)"/>
+                <ellipse cx="35" cy="70" rx="8" ry="18" fill="none" stroke="#C75B39" stroke-width="1.5" transform="rotate(-120 35 70)"/>
+                <ellipse cx="65" cy="70" rx="8" ry="18" fill="none" stroke="#C75B39" stroke-width="1.5" transform="rotate(120 65 70)"/>
+                <circle cx="50" cy="55" r="10" fill="none" stroke="#C75B39" stroke-width="1.5"/>
+                <circle cx="50" cy="55" r="4" fill="#C75B39"/>
             </svg>
         </div>
-        <div class="decoration deco-flower-4">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="18" fill="#1E6B7B"/>
-                <ellipse cx="50" cy="15" rx="14" ry="22" fill="#E8922A"/>
-                <ellipse cx="50" cy="85" rx="14" ry="22" fill="#E8922A"/>
-                <ellipse cx="15" cy="50" rx="22" ry="14" fill="#E8922A"/>
-                <ellipse cx="85" cy="50" rx="22" ry="14" fill="#E8922A"/>
-                <circle cx="50" cy="50" r="10" fill="#C43D6E"/>
-                <circle cx="50" cy="50" r="5" fill="#F4C430"/>
+        <div class="alpona-motif motif-4">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Fish motif (common in alpona) -->
+                <path d="M15 50 Q50 20 85 50 Q50 80 15 50" fill="none" stroke="#2D5A45" stroke-width="2"/>
+                <circle cx="75" cy="50" r="4" fill="#2D5A45"/>
+                <path d="M15 50 L5 40 L5 60 Z" fill="none" stroke="#2D5A45" stroke-width="1.5"/>
+                <path d="M30 50 Q50 35 70 50" fill="none" stroke="#2D5A45" stroke-width="1"/>
+                <path d="M30 50 Q50 65 70 50" fill="none" stroke="#2D5A45" stroke-width="1"/>
             </svg>
         </div>
 
         <div class="hero-content">
-            <div class="hero-badge">Coming Soon</div>
+            <div class="hero-badge">✿ Coming Soon ✿</div>
 
             <h1 class="hero-title">
-                Never Forget <span class="hero-title-highlight">What Matters</span>
+                Never Forget What Matters
                 <span class="hero-title-bengali">মনে রাখবো — যা গুরুত্বপূর্ণ</span>
             </h1>
 
@@ -551,55 +564,52 @@
             </p>
 
             <div class="hero-card">
-                <div class="card-header">
-                    <h2>Be the first to know when we launch</h2>
-                </div>
-                <div class="card-body">
-                    <ul class="features-list">
-                        <li>
-                            <span class="feature-icon feature-icon-1">🎂</span>
-                            <div class="feature-content">
-                                <div class="feature-title">Birthday & Anniversary Reminders</div>
-                                <div class="feature-desc">Never miss an important date again</div>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="feature-icon feature-icon-2">💌</span>
-                            <div class="feature-content">
-                                <div class="feature-title">Automatic Message Delivery</div>
-                                <div class="feature-desc">Schedule wishes weeks in advance</div>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="feature-icon feature-icon-3">🇧🇩</span>
-                            <div class="feature-content">
-                                <div class="feature-title">Made for Bangladesh</div>
-                                <div class="feature-desc">Bangla support, bKash payments</div>
-                            </div>
-                        </li>
-                    </ul>
+                <h2>Be the first to know when we launch</h2>
 
-                    <form class="notify-form" action="#" method="POST" onsubmit="return handleSubmit(event)">
-                        <input
-                            type="email"
-                            class="notify-input"
-                            placeholder="Enter your email address"
-                            required
-                            aria-label="Email address"
-                        >
-                        <button type="submit" class="notify-button">Notify Me</button>
-                    </form>
-                    <p class="form-note">No spam, just one email when we launch 🎉</p>
-                </div>
+                <ul class="features-list">
+                    <li>
+                        <span class="feature-icon">🎂</span>
+                        <div class="feature-content">
+                            <div class="feature-title">Birthday & Anniversary Reminders</div>
+                            <div class="feature-desc">Never miss an important date again</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-icon">💌</span>
+                        <div class="feature-content">
+                            <div class="feature-title">Automatic Message Delivery</div>
+                            <div class="feature-desc">Schedule wishes weeks in advance</div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-icon">🇧🇩</span>
+                        <div class="feature-content">
+                            <div class="feature-title">Made for Bangladesh</div>
+                            <div class="feature-desc">Bangla support, bKash payments</div>
+                        </div>
+                    </li>
+                </ul>
+
+                <form class="notify-form" action="#" method="POST" onsubmit="return handleSubmit(event)">
+                    <input
+                        type="email"
+                        class="notify-input"
+                        placeholder="Enter your email address"
+                        required
+                        aria-label="Email address"
+                    >
+                    <button type="submit" class="notify-button">Notify Me</button>
+                </form>
+                <p class="form-note">No spam, just one email when we launch.</p>
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <div class="footer-border"></div>
+        <div class="footer-pattern"></div>
         <div class="footer-content">
             <p class="footer-text">
-                &copy; 2026 Mone Rakhbo. Made with <span class="heart">❤️</span> in Bangladesh.
+                &copy; 2026 Mone Rakhbo. Made with ❤️ in Bangladesh.
             </p>
         </div>
     </footer>
@@ -610,9 +620,9 @@
             const form = event.target;
             const button = form.querySelector('button');
 
-            button.textContent = '🎉 ধন্যবাদ!';
+            button.textContent = 'ধন্যবাদ!';
             button.disabled = true;
-            button.style.background = 'linear-gradient(135deg, #2D7D46 0%, #3D9D5A 100%)';
+            button.style.background = '#2D5A45';
 
             setTimeout(() => {
                 button.textContent = 'Notify Me';
